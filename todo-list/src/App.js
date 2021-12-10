@@ -16,7 +16,10 @@ class App extends Component {
     return (
       <div className="App">
         {
-          this.todoItems.map((item, index)=><TodoItem key={index} item={item}></TodoItem>)
+          this.todoItems.length>0 && this.todoItems.map((item, index)=><TodoItem key={index} item={item}></TodoItem>)
+        }
+        {
+          this.todoItems.length==0 && 'Nonthing here'
         }
       </div>
     );
