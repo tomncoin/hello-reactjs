@@ -3,8 +3,27 @@
     font-size: 24px;
     font-weight: 300;
     color: brown;
+    border: burlywood solid 1px;
+    text-align: center;
+    display: flex;
+    padding: 10px 5px;
+    margin: auto;
+    width: 500px;
 }
 .TodoItemDone{
     opacity: 0.3;
     text-decoration: line-through;
+}
+
+.TodoItem >p{
+    margin: 0;
+    margin-left: 10px;
+}
+
+.TodoItem:last-child{
+    /* border-bottom: none; */
+}
+
+.TodoItemDone >p{
+    opacity: 0.3;
 }
