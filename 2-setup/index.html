@@ -8,11 +8,13 @@
         <img src="https://www.gstatic.com/webp/gallery/4.sm.jpg"> -->
         <script crossorigin src="https://unpkg.com/react@17/umd/react.production.min.js"></script>
         <script crossorigin src="https://unpkg.com/react-dom@17/umd/react-dom.production.min.js"></script>
-        <script>
+        <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+        <script type="text/babel">
             //const Hello = React.createElement('div',null, 'Hello world! React');
-            const Title = React.createElement('div',{
-                className: 'title'
-            },'React Hello');
+            // const Title = React.createElement('div',{
+            //     className: 'title'
+            // },'React Hello');
+            const Title = <div className="title">React Hello</div>
             const Iamge = React.createElement('img',{
                 src: 'https://www.gstatic.com/webp/gallery/4.sm.jpg'
             });
