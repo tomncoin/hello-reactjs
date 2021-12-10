@@ -1,0 +1,17 @@
+//conact
+var b = [1, 2, 3];
+var c= [].concact(b,4);
+var c= [4].concact(b);
+var c= [...b, 4];
+var c= [4,...b];
+
+var c= b.slice();
+c.push(4);
+
+var c= [...b.slice(0,2),4,...b.slice(2)];
+
+var b={name:"thong", gfs:["huong","kieu"]};
+var c= Object.assign({},b);
+c.name='minh';
+var c= {...b,name:'minh'};
+var c= {...b,name:'minh', gfs:[...b.gfs,'lan']};
