@@ -1,28 +1,24 @@
 import logo from './logo.svg';
 import './App.css';
 import TodoItem from './components/TodoItem';
+import { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <TodoItem title="Mua bim bim"/>
-        <TodoItem title="Đi đá bóng"/>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  constructor(){
+    super();
+    this.todoItems=[
+      'Mua bim bim', 'Di da bong', 'Di cho'
+    ]
+  }
+  render(){
+    return (
+      <div className="App">
+        {
+          this.todoItems.map((item, index)=><TodoItem key={index} title={item}></TodoItem>)
+        }
+      </div>
+    );
+  }
 }
 
 export default App;
