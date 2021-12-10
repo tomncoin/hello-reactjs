@@ -3,7 +3,7 @@ import './App.css';
 import TodoItem from './components/TodoItem';
 import { Component } from 'react';
 
-class App extends Component {
+class App extends Component { 
   constructor(){
     super();
     this.todoItems=[
