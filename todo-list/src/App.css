@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 500px;
+  margin: auto;
 }
 
 .App-logo {
@@ -27,6 +29,27 @@
 .App-link {
   color: #61dafb;
 }
+
+.App .Header{
+  padding: 10px 5px;
+  display: flex;
+}
+
+
+.App .Header input{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  font-size: 24px;
+  font-weight: 300;
+  width: 100%;
+  border: none;
+  margin-left: 10px;
+}
+
+
+.App .Header input:focus{
+  outline: none;
+}
+
 
 @keyframes App-logo-spin {
   from {

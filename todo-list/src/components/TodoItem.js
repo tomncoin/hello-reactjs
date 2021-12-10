@@ -6,9 +6,9 @@ class TodoItem extends Component{
     render(){
         
         const {item, onClick}=this.props;
-        let checkImg ="https://cdn-icons-png.flaticon.com/128/87/87932.png";
+        let checkImg ="https://img.icons8.com/carbon-copy/2x/checked.png";
         if(item.isCompleted){
-            checkImg ="https://cdn-icons.flaticon.com/png/128/2251/premium/2251677.png?token=exp=1639125883~hmac=568c970f958be48674380a2884c01a64";
+            checkImg ="https://img.icons8.com/color-glass/2x/checked.png";
         }
 
         let className="TodoItem";

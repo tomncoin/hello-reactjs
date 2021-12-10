@@ -7,8 +7,6 @@
     text-align: center;
     display: flex;
     padding: 10px 5px;
-    margin: auto;
-    width: 500px;
 }
 .TodoItemDone{
     opacity: 0.3;
