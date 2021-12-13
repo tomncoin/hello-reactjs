@@ -113,7 +113,7 @@ class App extends Component {
         }
 
         <br></br>
-        <button onClick={()=>this.removeCounter()}>Remove Counter</button>
+        <button className="btn btn-primary" onClick={()=>this.removeCounter()}>Remove Counter</button>
         { this.state.showCounter && <Counter></Counter>}
 
         <br></br>
