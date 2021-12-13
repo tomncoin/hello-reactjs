@@ -6,6 +6,7 @@ import { Button } from 'reactstrap';
 
 import TodoItem from './components/TodoItem';
 import Counter from './components/Counter';
+import Card2  from './components/Card2';
 
 class App extends Component { 
   constructor(){
@@ -118,6 +119,11 @@ class App extends Component {
 
         <br></br>
         <Button color="primary">primary</Button>{' '}
+
+        <br></br>
+        <Card2 imageUrl="https://cdn.pixabay.com/photo/2013/11/28/10/36/road-220058_960_720.jpg">
+          hello
+        </Card2>
       </div>
     );
   }

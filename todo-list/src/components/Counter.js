@@ -40,9 +40,9 @@ class Counter extends Component{
         console.log("counter rendering...");
         return(
             <div>
-                <button onClick={()=>this.decrease()}>-</button>
-                <span>{this.state.count}</span>
-                <button onClick={()=>this.increase()}>+</button>
+                <button className="btn btn-info"  onClick={()=>this.decrease()}>-</button>
+                <span style={{margin: "0px 10px"}}>{this.state.count}</span>
+                <button className="btn btn-info"  onClick={()=>this.increase()}>+</button>
             </div>
 
         );
