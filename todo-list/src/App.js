@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import TodoItem from './components/TodoItem';
-import { Component } from 'react';
+import React, { Component } from 'react';
 
 class App extends Component { 
   constructor(){
@@ -17,6 +17,17 @@ class App extends Component {
 
     this.onKeyUp =this.onKeyUp.bind(this);
     this.onChange =this.onChange.bind(this);
+
+    this.inputElement = React.createRef();
+
+    debugger;
+
+    //this.inputElement.current.focus();
+    //setTimeout(() =>this.inputElement.current.focus(), 2000);
+  }
+
+  componentDidMount(){
+    this.inputElement.current.focus();
   }
 
   onItemClick(item){
@@ -70,6 +81,7 @@ class App extends Component {
 
     return (
       <div className="App">
+        <input type="text" ref={this.inputElement}/>
         <div className="Header">
           <img src="https://img.icons8.com/ios/2x/check-all.png" width="32" height="32" ></img>
           <input type="text" 
