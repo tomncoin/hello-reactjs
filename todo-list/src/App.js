@@ -1,7 +1,9 @@
 import logo from './logo.svg';
 import './App.css';
-import TodoItem from './components/TodoItem';
 import React, { Component } from 'react';
+
+import TodoItem from './components/TodoItem';
+import Counter from './components/Counter';
 
 class App extends Component { 
   constructor(){
@@ -12,7 +14,9 @@ class App extends Component {
         {title: 'Mua bim bim', isCompleted: true},
         {title: 'Di da bong', isCompleted: false}, 
         {title: 'Di cho', isCompleted: true}
-      ]
+      ],
+      showCounter: true
+
     };
 
     this.onKeyUp =this.onKeyUp.bind(this);
@@ -20,15 +24,20 @@ class App extends Component {
 
     this.inputElement = React.createRef();
 
-    debugger;
+    // debugger;
 
     //this.inputElement.current.focus();
     //setTimeout(() =>this.inputElement.current.focus(), 2000);
+
+  
   }
 
-  componentDidMount(){
-    this.inputElement.current.focus();
+  removeCounter(){
+    this.setState({
+      showCounter: !this.state.showCounter
+    });
   }
+
 
   onItemClick(item){
 
@@ -77,6 +86,9 @@ class App extends Component {
   }
 
   render(){
+    console.log("App render");
+
+
     const {todoItems, newItem} =this.state;
 
     return (
@@ -97,8 +109,20 @@ class App extends Component {
         {
           todoItems.length==0 && 'Nonthing here'
         }
+
+        <br></br>
+        <button onClick={()=>this.removeCounter()}>Remove Counter</button>
+        { this.state.showCounter && <Counter></Counter>}
       </div>
     );
+  }
+
+  componentDidMount(){
+    this.inputElement.current.focus();
+  }
+
+  componentDidUpdate(){
+    console.log("App update");
   }
 }
 
