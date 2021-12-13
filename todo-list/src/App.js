@@ -2,6 +2,8 @@ import logo from './logo.svg';
 import './App.css';
 import React, { Component } from 'react';
 
+import { Button } from 'reactstrap';
+
 import TodoItem from './components/TodoItem';
 import Counter from './components/Counter';
 
@@ -113,6 +115,9 @@ class App extends Component {
         <br></br>
         <button onClick={()=>this.removeCounter()}>Remove Counter</button>
         { this.state.showCounter && <Counter></Counter>}
+
+        <br></br>
+        <Button color="primary">primary</Button>{' '}
       </div>
     );
   }
