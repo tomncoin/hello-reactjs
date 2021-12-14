@@ -11,7 +11,7 @@ export default class Counter extends Component{
 
     componentDidMount(){
         this.timeId= setInterval(() => {
-            console.log('componentDidMount');
+            // console.log('componentDidMount');
 
           this.setState({
                 count: this.state.count+1
@@ -24,7 +24,7 @@ export default class Counter extends Component{
     }
 
     render(){
-        console.log('render');
+        // console.log('render');
         return <div>
             {this.props.children(this.state)}
         </div>;
