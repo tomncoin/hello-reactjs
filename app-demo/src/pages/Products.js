@@ -1,295 +1,60 @@
 import { Component } from "react";
 import { Container, Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button} from 'reactstrap';
+import axios from 'axios';
 
 class Products extends Component{
     constructor(props){
         super(props);
         this.state={
-            products:  [
-                {
-                  "id": "a81bf7e1-4fe5-4948-b2a6-19376ab273a4",
-                  "name": "Vermouth - White, Cinzano",
-                  "description": "nisi eu orci mauris lacinia sapien quis libero nullam sit amet",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 87
-                },
-                {
-                  "id": "79321185-a0ac-4b9c-b921-82ba57f57934",
-                  "name": "Mcguinness - Blue Curacao",
-                  "description": "nisl aenean lectus pellentesque eget nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 11
-                },
-                {
-                  "id": "ddaaa00a-37b5-4321-b7a4-fdbdb80485a9",
-                  "name": "Pasta - Angel Hair",
-                  "description": "vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 31
-                },
-                {
-                  "id": "d019c1a9-dbda-4661-86ea-467ff73fbd9c",
-                  "name": "Cookies - Assorted",
-                  "description": "leo rhoncus sed vestibulum sit amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 29
-                },
-                {
-                  "id": "fc0c551f-3cc2-4a1c-bbad-ec2e8b97b161",
-                  "name": "Allspice - Jamaican",
-                  "description": "lacus at velit vivamus vel nulla eget eros elementum pellentesque quisque porta volutpat",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 10
-                },
-                {
-                  "id": "792dc58c-282e-4de6-905c-fe32cb6b2c04",
-                  "name": "Gelatine Powder",
-                  "description": "congue eget semper rutrum nulla nunc purus phasellus in felis donec semper sapien a libero nam dui proin leo odio",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 5
-                },
-                {
-                  "id": "2944a783-76a0-4ee6-9c2b-d43a2277492b",
-                  "name": "Honey - Comb",
-                  "description": "libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla sed vel",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 55
-                },
-                {
-                  "id": "ed617d21-6ee4-47d8-82dd-be612dd63381",
-                  "name": "Cheese - Perron Cheddar",
-                  "description": "tellus in sagittis dui vel nisl duis ac nibh fusce lacus purus aliquet",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 47
-                },
-                {
-                  "id": "9f0689a3-bc8f-4a1f-80e2-da5b191e3a47",
-                  "name": "Hand Towel",
-                  "description": "nunc donec quis orci eget orci vehicula condimentum curabitur in libero ut massa volutpat convallis morbi odio",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 10
-                },
-                {
-                  "id": "28c6b2b2-36b2-41de-92b4-4a9fdbc92497",
-                  "name": "Wine - Charddonnay Errazuriz",
-                  "description": "urna pretium nisl ut volutpat sapien arcu sed augue aliquam erat volutpat in congue etiam justo etiam pretium iaculis",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 7
-                },
-                {
-                  "id": "9bff63ae-c4bb-4a91-af22-27be8aebac60",
-                  "name": "Cheese - Colby",
-                  "description": "curae duis faucibus accumsan odio curabitur convallis duis consequat dui",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 25
-                },
-                {
-                  "id": "27c98f5e-b271-4635-b2a1-01e838ba960f",
-                  "name": "Table Cloth 62x114 Colour",
-                  "description": "luctus et ultrices posuere cubilia curae nulla dapibus dolor vel est",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 70
-                },
-                {
-                  "id": "1276780c-dc5d-4662-b4d3-7ad5539da7dd",
-                  "name": "Carbonated Water - White Grape",
-                  "description": "vel augue vestibulum rutrum rutrum neque aenean auctor gravida sem praesent id massa id",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 59
-                },
-                {
-                  "id": "fad581bb-cb69-4e61-bc60-a18a51f99fc1",
-                  "name": "Veal - Provimi Inside",
-                  "description": "dictumst etiam faucibus cursus urna ut tellus nulla ut erat id mauris vulputate elementum nullam varius",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 27
-                },
-                {
-                  "id": "0c828c9f-2f3f-4354-96fb-dc8271c99ead",
-                  "name": "Wine - Fino Tio Pepe Gonzalez",
-                  "description": "mauris non ligula pellentesque ultrices phasellus id sapien in sapien iaculis congue vivamus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 37
-                },
-                {
-                  "id": "d17bed09-cfe4-4b06-b5b2-56ebbb8929a7",
-                  "name": "Sauce Tomato Pouch",
-                  "description": "praesent id massa id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 40
-                },
-                {
-                  "id": "b40c8399-f445-43af-bda0-aa1c16f0744f",
-                  "name": "Potatoes - Peeled",
-                  "description": "accumsan felis ut at dolor quis odio consequat varius integer ac leo pellentesque ultrices mattis odio donec",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 45
-                },
-                {
-                  "id": "99998d13-3fcb-4292-b4a6-faad14964e5f",
-                  "name": "Oats Large Flake",
-                  "description": "eget tincidunt eget tempus vel pede morbi porttitor lorem id",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 80
-                },
-                {
-                  "id": "7bb92e62-200f-4155-afe5-151a02356dcc",
-                  "name": "Wine - Fume Blanc Fetzer",
-                  "description": "justo sit amet sapien dignissim vestibulum vestibulum ante ipsum primis in faucibus orci luctus et",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 99
-                },
-                {
-                  "id": "3703b250-8931-4705-ac9c-5a673abc7c65",
-                  "name": "Soup - Campbells Chicken",
-                  "description": "at ipsum ac tellus semper interdum mauris ullamcorper purus sit amet nulla quisque arcu",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 1
-                },
-                {
-                  "id": "e480f71c-2465-456c-baa6-bba1b5787251",
-                  "name": "Lamb Leg - Bone - In Nz",
-                  "description": "elit ac nulla sed vel enim sit amet nunc viverra dapibus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 72
-                },
-                {
-                  "id": "ced1d1d9-d538-4ad0-bc00-d5509666d9d0",
-                  "name": "Longos - Grilled Veg Sandwiches",
-                  "description": "et magnis dis parturient montes nascetur ridiculus mus etiam vel augue vestibulum rutrum rutrum neque aenean",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 52
-                },
-                {
-                  "id": "d4d94a60-d645-4425-9999-d56a797cf6d5",
-                  "name": "Blueberries - Frozen",
-                  "description": "cras mi pede malesuada in imperdiet et commodo vulputate justo in blandit ultrices enim lorem ipsum dolor sit amet",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 37
-                },
-                {
-                  "id": "4d97b71c-13e0-44a7-aa6c-47e9026ce34c",
-                  "name": "Bar Energy Chocchip",
-                  "description": "nulla suscipit ligula in lacus curabitur at ipsum ac tellus semper interdum mauris ullamcorper purus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 39
-                },
-                {
-                  "id": "313fe45c-b11a-43b2-83e1-0761cb1d0c22",
-                  "name": "Oil - Shortening,liqud, Fry",
-                  "description": "turpis eget elit sodales scelerisque mauris sit amet eros suspendisse accumsan tortor quis turpis sed ante",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 52
-                },
-                {
-                  "id": "f238c39b-a75c-4dee-ab53-4b681714495f",
-                  "name": "Broccoli - Fresh",
-                  "description": "vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae nulla",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 6
-                },
-                {
-                  "id": "eb8fc79f-2545-4bd8-9613-46e531a71034",
-                  "name": "Bread Base - Italian",
-                  "description": "sagittis sapien cum sociis natoque penatibus et magnis dis parturient montes",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 91
-                },
-                {
-                  "id": "85383ef5-4906-4b0d-832e-f0500a32e4f3",
-                  "name": "Tart - Raisin And Pecan",
-                  "description": "amet cursus id turpis integer aliquet massa id lobortis convallis tortor risus dapibus augue vel accumsan tellus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 65
-                },
-                {
-                  "id": "891999e9-af5b-4e54-8d95-426f3673f018",
-                  "name": "Crab - Soft Shell",
-                  "description": "suspendisse ornare consequat lectus in est risus auctor sed tristique",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 11
-                },
-                {
-                  "id": "75e55ce9-5018-4480-b51e-b5e59f26c051",
-                  "name": "Cookies - Fortune",
-                  "description": "ornare consequat lectus in est risus auctor sed tristique in tempus",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 86
-                },
-                {
-                  "id": "927a021d-4104-4193-aab2-35071fb54f2f",
-                  "name": "Cake - Pancake",
-                  "description": "odio donec vitae nisi nam ultrices libero non mattis pulvinar nulla pede ullamcorper augue a suscipit nulla elit ac nulla",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 47
-                },
-                {
-                  "id": "8582e050-1d1f-48da-a919-e2da09719d09",
-                  "name": "Ice - Clear, 300 Lb For Carving",
-                  "description": "id nisl venenatis lacinia aenean sit amet justo morbi ut odio cras mi pede malesuada in imperdiet",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 20
-                },
-                {
-                  "id": "4285e5a0-d6ce-4a41-82a0-d8166a8dcb41",
-                  "name": "Potatoes - Yukon Gold 5 Oz",
-                  "description": "nisi eu orci mauris lacinia sapien quis libero nullam sit amet turpis elementum ligula vehicula consequat morbi a ipsum",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 44
-                },
-                {
-                  "id": "7e61c102-c134-49a6-a4ef-51fd4d79c504",
-                  "name": "Pork - Caul Fat",
-                  "description": "pede justo eu massa donec dapibus duis at velit eu",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 92
-                },
-                {
-                  "id": "7dcfe99f-faae-49e4-bb61-bc1719d6e3b4",
-                  "name": "Wine - Periguita Fonseca",
-                  "description": "erat vestibulum sed magna at nunc commodo placerat praesent blandit nam nulla integer pede justo lacinia",
-                  "image": "https://images.pexels.com/photos/1108099/pexels-photo-1108099.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-                  "price": 70
-                },
-            ]
+            products:  []
         };
     }
+
+
     render(){
         const {products} = this.state;
 
         console.log(products);
 
         return(
-            <Container>
+            <Container className="pt-3">
                 <h2>Products</h2>
                 <Row>
-                    <Col xl="4">
+                    
                     {products.map(product=>(
+                      <Col sm="3">
                         <Card>
-                        <CardImg
-                          alt=""
-                          src={product.image}
-                          top
-                          width="100%"
-                        />
-                        <CardBody>
-                          <CardTitle tag="h5">
-                          {product.name}
-                          </CardTitle>
-                          <CardText>
-                            {product.description}
-                          </CardText>
-                          <Button>
-                            Add to Cart
-                          </Button>
-                        </CardBody>
-                      </Card>
+                          <CardImg
+                            alt=""
+                            src={product.image}
+                            top
+                            width="100%"
+                          />
+                          <CardBody>
+                            <CardTitle tag="h5">
+                            {product.name}
+                            </CardTitle>
+                            <CardText>
+                              {product.description}
+                            </CardText>
+                            <Button>
+                              Add to Cart
+                            </Button>
+                          </CardBody>
+                        </Card>
+                      </Col>
                     ))}
-                    </Col>
                 </Row>
             </Container>
-           
         );
+    }
+
+    componentDidMount(){
+      axios.get('http://localhost:8080/products').then(res=>{
+        this.setState({
+          products: res.data
+        });
+      })
     }
 }
 
