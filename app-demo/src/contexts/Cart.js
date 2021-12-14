@@ -28,11 +28,8 @@ export class CartProvider extends Component{
         //     }
         // );
        
-        this.setState(state=>
-            {
-                return{
-                quantity: state.quantity + 1}
-            }
+        this.setState(state=>({
+                quantity: state.quantity + 1})
         );
         this.setState(state=>
             {
