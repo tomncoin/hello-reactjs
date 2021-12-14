@@ -44,8 +44,11 @@ function Home() {
 
     <br/>
     <h2>Coutner</h2>
-    <Counter render={value=><div>{value}</div>}></Counter>
-    <Counter render={value=><strong>{value}</strong>}></Counter>
+    <Counter render={value=><div>{value}</div>}>
+      {
+        value=><strong>{value}</strong>
+      }
+    </Counter>
   </div>
   ;
 }
