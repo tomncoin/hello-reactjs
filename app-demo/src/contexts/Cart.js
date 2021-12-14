@@ -22,6 +22,11 @@ export class CartProvider extends Component{
                 quantity: this.state.quantity + 1
             }
         );
+        this.setState(
+            {
+                quantity: this.state.quantity + 1
+            }
+        );
     }
 
     addToCart(product){
