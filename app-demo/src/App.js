@@ -11,6 +11,8 @@ import Products from "./pages/Products";
 import List from "./components/List";
 import Counter from "./components/Counter";
 
+import CartContext from "./contexts/CartContext";
+import CartProvider from "./contexts/CartProvider";
 
 export default function App() {
   return (
@@ -49,6 +51,19 @@ function Home() {
         ({count})=><strong>{count}</strong>
       }
     </Counter>
+    
+    <br/>
+    <h2>Context</h2>
+    <CartProvider>
+      <CartContext.Consumer>
+        {
+          (context)=><strong>{context}</strong>
+        }
+      </CartContext.Consumer>
+    </CartProvider>
+
+
+
   </div>
   ;
 }
