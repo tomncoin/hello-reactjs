@@ -17,14 +17,27 @@ export class CartProvider extends Component{
     }
 
     updateQuantity(){
-        this.setState(
+        // this.setState(
+        //     {
+        //         quantity: this.state.quantity + 1
+        //     }
+        // );
+        // this.setState(
+        //     {
+        //         quantity: this.state.quantity + 1
+        //     }
+        // );
+       
+        this.setState(state=>
             {
-                quantity: this.state.quantity + 1
+                return{
+                quantity: state.quantity + 1}
             }
         );
-        this.setState(
+        this.setState(state=>
             {
-                quantity: this.state.quantity + 1
+                return{
+                quantity: state.quantity + 1}
             }
         );
     }
