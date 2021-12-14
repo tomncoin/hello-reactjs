@@ -1,24 +1,33 @@
 import React,{Component} from "react";
 
-import CartContext from "./CartContext";
+export const CartContext = React.createContext();
 
-export default class extends Component{
+export class CartProvider extends Component{
     constructor(props){
         super(props);
 
         this.state = {
-            quantity: 10
+            quantity: 0,
+            cartItems: []
         };
 
         this.updateQuantity = this.updateQuantity.bind(this);
+        this.addToCart = this.addToCart.bind(this);
+
     }
 
     updateQuantity(){
         this.setState(
             {
-                quantity: Math.random()
+                quantity: this.state.quantity + 1
             }
         );
+    }
+
+    addToCart(product){
+        this.setState({
+            cartItems: this.state.cartItems.concat(product)
+        });
     }
 
     render(){
@@ -27,7 +36,9 @@ export default class extends Component{
                 <CartContext.Provider value={
                    { 
                        quantity: this.state.quantity,
-                       updateQuantity: this.updateQuantity
+                       updateQuantity: this.updateQuantity,
+                       addToCart: this.addToCart,
+                       cartItems: this.state.cartItems,
                    }
                 }>
                     {

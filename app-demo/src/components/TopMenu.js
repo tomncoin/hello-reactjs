@@ -2,6 +2,7 @@
 
 import { Navbar, Nav, Collapse, NavItem, NavLink, NavbarBrand, NavbarToggler
 ,DropdownMenu, DropdownItem, NavbarText,UncontrolledDropdown, DropdownToggle} from 'reactstrap';
+import {CartContext} from '../contexts/Cart';
 
 function TopMenu(){
     return (
@@ -32,7 +33,16 @@ function TopMenu(){
         </NavItem>
       </Nav>
       <NavbarText>
-        Simple Text
+
+        <CartContext.Consumer>
+          {
+            ({cartItems})=>(
+              <NavLink href="/products">
+                Cart ({cartItems.length})
+              </NavLink>
+            )
+          }
+        </CartContext.Consumer>
       </NavbarText>
     </Collapse>
   </Navbar>

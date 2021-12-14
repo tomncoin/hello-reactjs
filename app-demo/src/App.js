@@ -11,22 +11,23 @@ import Products from "./pages/Products";
 import List from "./components/List";
 import Counter from "./components/Counter";
 
-import CartContext from "./contexts/CartContext";
-import CartProvider from "./contexts/CartProvider";
+import {CartProvider,CartContext} from "./contexts/Cart";
 
 export default function App() {
   return (
     
     <Router>
-      <div>
-        <TopMenu></TopMenu>       
-      </div>
+      <CartProvider>
+        <div>
+          <TopMenu></TopMenu>       
+        </div>
 
-      <Routes>
-        <Route path="/" element={<Home/>}  />
-        <Route path="/products" element={<Products/>}  />
-        <Route path="/users" element={<Users/>}  />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home/>}  />
+          <Route path="/products" element={<Products/>}  />
+          <Route path="/users" element={<Users/>}  />
+        </Routes>
+      </CartProvider>
       
     </Router>
 

@@ -6,7 +6,11 @@ import AwesomeImage from "../components/AwesomeImage";
 import HoverOpacity from "../components/HoverOpacity";
 import withHoverOpacity from "../components/withHoverOpacity";
 
+import { CartContext } from "../contexts/Cart";
+
 const HoverAwesomeImage = withHoverOpacity(AwesomeImage);
+
+
 
 class Products extends Component{
     constructor(props){
@@ -47,9 +51,15 @@ class Products extends Component{
                             <CardText>
                               {product.description}
                             </CardText>
-                            <Button>
-                              Add to Cart
-                            </Button>
+                            <CartContext>
+                              {
+                                ({addToCart})=>(
+                                  <Button onClick={()=>addToCart(product)}>
+                                  Add to Cart
+                                  </Button>
+                                )
+                              }
+                            </CartContext>
                           </CardBody>
                         </Card>
                       </Col>
