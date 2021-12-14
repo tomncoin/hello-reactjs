@@ -33,6 +33,7 @@ function Home() {
   return <div>
     <h2>Home</h2>
     <List data={['A','B','C']} render={item=><div>{item}</div>}></List>
+    <List data={['A','B','C']} render={item=><div>{"- " +item}</div>}></List>
   </div>
   ;
 }
