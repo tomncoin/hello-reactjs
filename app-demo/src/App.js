@@ -57,7 +57,10 @@ function Home() {
     <CartProvider>
       <CartContext.Consumer>
         {
-          ({quantity})=><strong>{quantity}</strong>
+          ({quantity, updateQuantity})=><div>
+            <h2>{quantity}</h2>
+            <button onClick={updateQuantity}>Update Quantity</button>
+          </div>
         }
       </CartContext.Consumer>
     </CartProvider>
