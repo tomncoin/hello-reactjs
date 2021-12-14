@@ -11,7 +11,7 @@ export default class extends Component{
     render(){
         return(
             <div>
-                <CartContext.Provider value={5}>
+                <CartContext.Provider value={{quantity: 10}}>
                     {
                         this.props.children
                     }
