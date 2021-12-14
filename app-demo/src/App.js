@@ -44,9 +44,9 @@ function Home() {
 
     <br/>
     <h2>Coutner</h2>
-    <Counter render={value=><div>{value}</div>}>
+    <Counter>
       {
-        value=><strong>{value}</strong>
+        state=><strong>{state.count}</strong>
       }
     </Counter>
   </div>

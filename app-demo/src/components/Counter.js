@@ -26,7 +26,7 @@ export default class Counter extends Component{
     render(){
         console.log('render');
         return <div>
-            {this.props.children(this.state.count)}
+            {this.props.children(this.state)}
         </div>;
     }
 }
