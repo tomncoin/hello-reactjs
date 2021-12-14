@@ -57,7 +57,7 @@ function Home() {
     <CartProvider>
       <CartContext.Consumer>
         {
-          (context)=><strong>{context.quantity}</strong>
+          ({quantity})=><strong>{quantity}</strong>
         }
       </CartContext.Consumer>
     </CartProvider>
