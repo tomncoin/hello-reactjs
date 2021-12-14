@@ -2,6 +2,12 @@ import { Component } from "react";
 import { Container, Row, Col, Card, CardImg, CardBody, CardText, CardTitle, CardSubtitle, Button} from 'reactstrap';
 import axios from 'axios';
 
+import AwesomeImage from "../components/AwesomeImage";
+import HoverOpacity from "../components/HoverOpacity";
+import withHoverOpacity from "../components/withHoverOpacity";
+
+const HoverAwesomeImage = withHoverOpacity(AwesomeImage);
+
 class Products extends Component{
     constructor(props){
         super(props);
@@ -24,12 +30,16 @@ class Products extends Component{
                     {products.map(product=>(
                       <Col sm="3">
                         <Card>
-                          <CardImg
+                          {/* <CardImg
                             alt=""
                             src={product.image}
                             top
                             width="100%"
-                          />
+                          /> */}
+                          {/* <HoverOpacity>
+                            <AwesomeImage src={product.image}></AwesomeImage>
+                          </HoverOpacity> */}
+                          <HoverAwesomeImage src={product.image}></HoverAwesomeImage>
                           <CardBody>
                             <CardTitle tag="h5">
                             {product.name}
@@ -50,6 +60,7 @@ class Products extends Component{
     }
 
     componentDidMount(){
+      //http://localhost:8080/products: start server with node index.js in ./db
       axios.get('http://localhost:8080/products').then(res=>{
         this.setState({
           products: res.data
