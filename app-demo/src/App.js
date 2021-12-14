@@ -46,7 +46,7 @@ function Home() {
     <h2>Coutner</h2>
     <Counter>
       {
-        state=><strong>{state.count}</strong>
+        ({count})=><strong>{count}</strong>
       }
     </Counter>
   </div>
